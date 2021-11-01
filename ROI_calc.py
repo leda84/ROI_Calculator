@@ -36,6 +36,14 @@ class ROICalc():
                 # TO TAKE USER BACK TO ENTER A NUMBER
                 continue
 
+            snowLawn = input("\nHow much will you put aside monthly to cover Lawn Care & Snow Removal? (round up to whole dollar) ")
+            if snowLawn.lower() == "q":
+                break
+            elif snowLawn.isdigit() == False:
+                print("Please enter a number")
+                # TO TAKE USER BACK TO ENTER A NUMBER
+                continue
+
             hoafees = input("\nHow much are your monthly HOA fees? (enter 0 if not applicable) (round up to whole dollar) ")
             if hoafees.lower() == "q":
                 break
@@ -85,7 +93,7 @@ class ROICalc():
                 continue
             
             
-            total = int(tax) + int(insurance) + int(utilities) + int(hoafees) + int(vacancy) + int(repairs) + int(capex) + int(propmang) + int(mortgage)
+            total = int(tax) + int(insurance) + int(utilities) + int(hoafees) + int(snowLawn) + int(vacancy) + int(repairs) + int(capex) + int(propmang) + int(mortgage)
             print(f"\nYour total monthly expenses are: ${total} \n")
             break
 
@@ -179,11 +187,11 @@ class ROICalc():
                 continue
             
             total_investment = int(downPayment) + int(closing) + int(rehab) + int(misc)
-            print(f"\nYour total investment is: ${total_investment}")
+            print(f"\n\nYour Total Investment is: ${total_investment}")
             annual_cashflow = int(cashflow) * 12
-            print(f"Your annual cashflow is: ${annual_cashflow}")
+            print(f"Your Annual Cashflow is: ${annual_cashflow}")
             roi = (annual_cashflow/total_investment) * 100
-            print(f"Your Cash on Cash Return On Investment is: {roi}% per year \n")
+            print(f"Your Cash on Cash Return On Investment is: {roi}% per year \n\n")
             break
 
 
@@ -201,7 +209,7 @@ my_calc = ROICalc()
 
 def runCalc():
     while True:
-        action = input("Would you like to: (enter a number)" "\n\t 1. Calculate Monthly Expenses" "\n\t 2. Calculate Monthly Cashflow"  "\n\t 3. Calculate ROI" "\n\t 4. Quit" "\n")
+        action = input("\nWhat would you like to do? (enter a number)" "\n\t 1. Calculate Monthly Expenses" "\n\t 2. Calculate Monthly Cashflow"  "\n\t 3. Calculate ROI" "\n\t 4. Quit" "\n")
 
         if int(action) == 4:
             print("Thank you for using the calculator!")
